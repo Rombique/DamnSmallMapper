@@ -38,9 +38,6 @@ namespace DamnSmallMapper
 			}
 		}
 
-		public BasicMapProfile IgnoreProp(string propName) => 
-			IgnoreProps(propName);
-
 		public BasicMapProfile IgnoreProps(params string[] propNames)
 		{
 			foreach (var propName in propNames)
