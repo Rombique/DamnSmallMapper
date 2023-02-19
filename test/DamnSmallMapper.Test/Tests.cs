@@ -58,4 +58,19 @@ public class UnitTest1
 		Assert.Equal(client.LastName, person.Lastname);
 		Assert.Equal(client.Age, person.Age);
 	}
+	
+	[Fact]
+	public void MapUsingMethodMap()
+	{
+		var client = new Client()
+		{
+			FirstName = "Sergey",
+			LastName = "Bodrov",
+			Age = 35
+		};
+		var person = DamnSmallMapper.Map<Person>(client, nameof(Person.IgnoredInPerson));
+		Assert.Equal(person.FirstName, client.FirstName);
+		Assert.Equal(client.LastName, person.Lastname);
+		Assert.Equal(client.Age, person.Age);
+	}
 }

@@ -6,6 +6,10 @@ Basically you can use
 var foo = new Foo();
 foo.MapFrom(bar);
 ```
+or
+```csharp
+var foo = DamnSmallMapper.Map<Foo>(bar);
+```
 That's it! Now **foo** object contains values from object **bar**.
 It map properties with the same name ignoring case and type. 
 
@@ -33,7 +37,11 @@ public SourceClass
 And the second option is **IgnoreProps** function in **BasicMapProfile** (check Map profiles section below)
 or using **ignoreProps** argument in **MapFrom** function
 ```csharp
+// using MapFrom
 foo.MapFrom(bar, nameof(Bar.IgnoredProp));
+
+// using Map
+var foo = DamnSmallMapper.Map<Foo>(bar, nameof(Bar.IgnoredProp));
 ```
 
 ##  Map profiles
@@ -54,6 +62,11 @@ And use it in your code
 ```csharp
 var customMapProfile = new CustomMapProfile();
 foo.MapFrom(bar, customMapProfile);
+```
+or
+```csharp
+var customMapProfile = new CustomMapProfile();
+foo = DamnSmallMapper.Map<Foo>(bar, customMapProfile);
 ```
 
 ## Samples
