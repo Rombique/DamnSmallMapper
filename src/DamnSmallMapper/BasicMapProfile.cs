@@ -30,7 +30,8 @@ namespace DamnSmallMapper
 						string.Equals(p.Name, sourceProp.Name, StringComparison.CurrentCultureIgnoreCase));
 
 				if (targetProp != null && targetProp.CanWrite && targetProp.GetSetMethod() != null &&
-				    sourceProp.PropertyType == targetProp.PropertyType)
+				    sourceProp.PropertyType == targetProp.PropertyType &&
+				    !Attribute.IsDefined(targetProp, typeof(DoNotMapAttribute)))
 				{
 					targetProp.SetValue(target, sourceProp.GetValue(source));
 				}
