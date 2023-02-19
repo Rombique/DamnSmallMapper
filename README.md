@@ -18,16 +18,16 @@ First, you can mark property by **DoNotMapAttribute** in target-class
 ```csharp
 public TargetClass 
 {
-    [DoNotMap]
-    public string IgnoredInTarget { get; set; }
+	[DoNotMap]
+	public string IgnoredInTarget { get; set; }
 }
 ```
 or in source-class
 ```csharp
 public SourceClass 
 {
-    [DoNotMap]
-    public string IgnoredInSource { get; set; }
+	[DoNotMap]
+	public string IgnoredInSource { get; set; }
 }
 ```
 And the second option is **IgnoreProps** function in **BasicMapProfile** (check Map profiles section below)
@@ -42,12 +42,12 @@ It's possible to create your own map profile.
 ```csharp
 public class CustomMapProfile : BasicMapProfile  
 {  
-    protected override void DefineMapping(object source, object target)  
-    {  
-        IgnoreProps(nameof(Foo.IgnoredProperty));
-	(target as Foo)!.IgnoredProperty = "Another value";
-        base.DefineMapping(source, target);
-    }
+	protected override void DefineMapping(object source, object target)  
+	{  
+		IgnoreProps(nameof(Foo.IgnoredProperty));
+		(target as Foo)!.IgnoredProperty = "Another value";
+		base.DefineMapping(source, target);
+	}
 }
 ```
 And use it in your code
