@@ -11,7 +11,7 @@ or
 var foo = DamnSmallMapper.Map<Foo>(bar);
 ```
 That's it! Now **foo** object contains values from object **bar**.
-It map properties with the same name ignoring case and type. 
+It maps properties with the same name ignoring case and type. 
 
 ## How to ignore properties
 There are two different ways to mark property as ignored
@@ -34,7 +34,7 @@ public SourceClass
 	public string IgnoredInSource { get; set; }
 }
 ```
-And the second option is **IgnoreProps** function in **BasicMapProfile** (check Map profiles section below)
+The second option is **IgnoreProps** function in **BasicMapProfile** (check Map profiles section below)
 or using **ignoreProps** argument in **MapFrom** function
 ```csharp
 // using MapFrom
@@ -71,4 +71,4 @@ foo = DamnSmallMapper.Map<Foo>(bar, customMapProfile);
 
 ## Samples
 
-You can find useful parts of the code in [test-project](https://github.com/Rombique/DamnSmallMapper/tree/master/test/DamnSmallMapper.Test)
+You can find useful snippets in [test-project](https://github.com/Rombique/DamnSmallMapper/tree/master/test/DamnSmallMapper.Test)
